@@ -10112,3 +10112,9 @@ section.resume-section .resume-section-content {
     padding-bottom: 5rem;
   }
 }
+.flex-shrink-0 > img{
+  transition: all 300ms ease-in-out;
+}
+.flex-shrink-0 > img:hover{
+  transform: scale(1.2);
+}
