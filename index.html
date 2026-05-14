@@ -1,494 +1,554 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <meta name="description" content=""/>
-    <meta name="author" content=""/>
-    <title>Aniket Mahajan - Portfolio</title>
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico"/>
-    <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet"
-          type="text/css"/>
-    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css"/>
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aniket Mahajan — Lead Frontend Engineer</title>
+<meta name="description" content="Lead Frontend Engineer with 4+ years building scalable consumer products at Pocket FM. React, Next.js, TypeScript specialist.">
+<style>
+/* ── Local Fonts ── */
+@font-face { font-family:'Plus Jakarta Sans'; src:url('fonts/plus-jakarta-sans-latin-400-normal.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Plus Jakarta Sans'; src:url('fonts/plus-jakarta-sans-latin-500-normal.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Plus Jakarta Sans'; src:url('fonts/plus-jakarta-sans-latin-600-normal.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face { font-family:'Plus Jakarta Sans'; src:url('fonts/plus-jakarta-sans-latin-700-normal.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'Instrument Serif'; src:url('fonts/instrument-serif-latin-400-normal.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Instrument Serif'; src:url('fonts/instrument-serif-latin-400-italic.woff2') format('woff2'); font-weight:400; font-style:italic; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('fonts/outfit-latin-400-normal.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('fonts/outfit-latin-500-normal.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('fonts/outfit-latin-600-normal.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap; }
+@font-face { font-family:'Outfit'; src:url('fonts/outfit-latin-700-normal.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; }
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#080909;--bg2:#0f1010;--bg3:#161717;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);
+  --ink:#edecea;--ink2:#9b9896;--ink3:#525150;
+  --green:#3ecf8e;
+  --gd:rgba(62,207,142,.08);--gd2:rgba(62,207,142,.04);--gl:rgba(62,207,142,.25);
+  --sans:'Plus Jakarta Sans',system-ui,sans-serif;
+  --display:'Outfit','Plus Jakarta Sans',sans-serif;
+  --serif:'Instrument Serif',Georgia,serif;
+  --r:10px;--rl:16px;--max:960px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;cursor:none}
+a,button{cursor:none}
+
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:900;opacity:.02;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23f)'/%3E%3C/svg%3E")}
+
+/* cursor */
+.cur{width:8px;height:8px;background:var(--green);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
+.cur-r{width:28px;height:28px;border:1px solid var(--gl);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .2s,height .2s,border-color .2s}
+body:has(a:hover) .cur-r,body:has(button:hover) .cur-r{width:44px;height:44px;border-color:rgba(62,207,142,.5)}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.1rem 0;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+nav.stuck{background:rgba(8,9,9,.9);backdrop-filter:blur(18px) saturate(180%);border-color:var(--border)}
+.nw{max-width:var(--max);margin:0 auto;padding:0 2.5rem;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--display);font-weight:700;font-size:1.1rem;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+.logo em{color:var(--green);font-style:normal}
+.nl{display:flex;gap:2.2rem;list-style:none}
+.nl a{font-size:13px;font-weight:500;color:var(--ink3);text-decoration:none;letter-spacing:.01em;transition:color .2s}
+.nl a:hover{color:var(--ink)}
+.ndl{font-family:var(--sans);font-size:12px;font-weight:600;padding:.45rem 1.1rem;border-radius:var(--r);border:1px solid var(--green);color:var(--green);background:transparent;text-decoration:none;transition:all .2s}
+.ndl:hover{background:var(--green);color:#080909}
+
+/* hero */
+#hero{min-height:100vh;display:grid;place-items:center;padding:7rem 0 5rem;position:relative;overflow:hidden}
+#hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:72px 72px;-webkit-mask-image:radial-gradient(ellipse 70% 70% at 50% 40%,black 20%,transparent 80%);mask-image:radial-gradient(ellipse 70% 70% at 50% 40%,black 20%,transparent 80%)}
+#hero::after{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(62,207,142,.055) 0%,transparent 65%);top:50%;left:50%;transform:translate(-50%,-52%);pointer-events:none}
+.hi{max-width:var(--max);margin:0 auto;padding:0 2.5rem;position:relative;z-index:2}
+
+.hstat{display:inline-flex;align-items:center;gap:.55rem;background:var(--bg3);border:1px solid var(--border2);padding:.35rem .9rem .35rem .65rem;border-radius:100px;margin-bottom:2.2rem;opacity:0;transform:translateY(8px);animation:up .55s .05s forwards}
+.hdot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px rgba(62,207,142,.7);animation:blink 2s infinite;flex-shrink:0}
+.hstat span{font-size:12px;font-weight:500;color:var(--ink2);letter-spacing:.01em}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+
+.hname{font-family:var(--display);font-size:clamp(3.4rem,7.5vw,6rem);font-weight:700;letter-spacing:-.035em;line-height:1;color:var(--ink);margin-bottom:.25rem;opacity:0;transform:translateY(16px);animation:up .65s .15s forwards}
+.hname .g{color:var(--green)}
+.hrole{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,2.8vw,1.9rem);color:var(--ink2);font-weight:400;margin-bottom:1.8rem;opacity:0;transform:translateY(14px);animation:up .65s .25s forwards}
+.hdesc{max-width:560px;font-size:15px;font-weight:400;color:var(--ink2);line-height:1.75;margin-bottom:2.5rem;opacity:0;transform:translateY(12px);animation:up .65s .35s forwards}
+.hdesc strong{color:var(--ink);font-weight:600}
+.hctas{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:2.8rem;opacity:0;transform:translateY(10px);animation:up .6s .44s forwards}
+
+.btnp{display:inline-flex;align-items:center;gap:.5rem;background:var(--green);color:#080909;font-family:var(--sans);font-size:13.5px;font-weight:700;padding:.72rem 1.6rem;border-radius:var(--r);text-decoration:none;border:1px solid var(--green);transition:all .2s}
+.btnp:hover{background:#5cd9a5;border-color:#5cd9a5;transform:translateY(-2px);box-shadow:0 8px 24px rgba(62,207,142,.2)}
+.btng{display:inline-flex;align-items:center;gap:.5rem;background:transparent;color:var(--ink);font-family:var(--sans);font-size:13.5px;font-weight:500;padding:.72rem 1.6rem;border-radius:var(--r);text-decoration:none;border:1px solid var(--border2);transition:all .2s}
+.btng:hover{background:var(--bg3);transform:translateY(-2px)}
+.ci{width:16px;height:16px;flex-shrink:0}
+
+.hpills{display:flex;flex-wrap:wrap;gap:.45rem;opacity:0;transform:translateY(8px);animation:up .55s .54s forwards}
+.pill{font-size:12px;font-weight:500;padding:.28rem .8rem;border-radius:100px;border:1px solid var(--border);color:var(--ink3);background:var(--bg2);transition:all .2s}
+.pill:hover{border-color:var(--gl);color:var(--green)}
+.pill.hi{border-color:var(--gl);color:var(--green);background:var(--gd)}
+@keyframes up{to{opacity:1;transform:translateY(0)}}
+
+/* marquee */
+.mqw{overflow:hidden;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:.9rem 0}
+.mqt{display:flex;width:max-content;animation:scroll 28s linear infinite}
+.mqt:hover{animation-play-state:paused}
+.mqi{display:flex;align-items:center;gap:1.2rem;padding:0 2.8rem;border-right:1px solid var(--border);white-space:nowrap}
+.mqn{font-family:var(--display);font-size:1.15rem;font-weight:700;color:var(--green)}
+.mqtx{font-size:12px;font-weight:500;color:var(--ink3)}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* sections */
+section{padding:6.5rem 0}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 2.5rem}
+.sl{display:inline-flex;align-items:center;gap:.55rem;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:.9rem}
+.sl::before{content:'';width:20px;height:1px;background:var(--green)}
+.st{font-family:var(--display);font-size:clamp(1.9rem,4vw,2.8rem);font-weight:700;letter-spacing:-.03em;color:var(--ink);line-height:1.1}
+
+/* impact */
+#impact{background:var(--bg)}
+.isub{font-size:15px;color:var(--ink2);margin-top:.75rem;max-width:460px;line-height:1.7}
+.krow{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;margin-top:3rem}
+.kc{background:var(--bg2);padding:1.8rem 1.5rem;position:relative;overflow:hidden;transition:background .25s}
+.kc:hover{background:var(--bg3)}
+.kc::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(62,207,142,.04),transparent 60%);opacity:0;transition:opacity .3s}
+.kc:hover::after{opacity:1}
+.kn{font-family:var(--display);font-size:2.6rem;font-weight:700;color:var(--green);line-height:1;margin-bottom:.5rem}
+.kn sup{font-size:1.1rem}
+.kt{font-size:12.5px;font-weight:500;color:var(--ink2);line-height:1.5}
+.wrow{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;margin-top:1px}
+.wc{background:var(--bg2);padding:1.6rem 1.5rem;display:flex;flex-direction:column;gap:.6rem;position:relative;transition:background .2s}
+.wc:hover{background:var(--bg3)}
+.wc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.wc:hover::before{transform:scaleX(1)}
+.wn{font-family:var(--display);font-size:2rem;font-weight:700;color:var(--ink);line-height:1}
+.wt{font-size:12px;font-weight:500;color:var(--ink2);line-height:1.5}
+.wtag{display:inline-flex;align-self:flex-start;font-size:10px;font-weight:600;letter-spacing:.06em;padding:.2rem .6rem;border-radius:4px;background:var(--gd);border:1px solid var(--gl);color:var(--green);margin-top:auto}
+
+/* experience */
+#experience{background:var(--bg2)}
+.xgrid{display:grid;grid-template-columns:200px 1fr;gap:5rem;align-items:start}
+.xsticky{position:sticky;top:7rem}
+.xnav{display:flex;flex-direction:column;gap:.25rem;margin-top:2rem}
+.xb{font-family:var(--sans);font-size:13px;font-weight:500;padding:.55rem .9rem;border-radius:8px;background:transparent;border:none;color:var(--ink3);text-align:left;cursor:none;transition:all .2s;line-height:1.4}
+.xb:hover{color:var(--ink);background:var(--bg3)}
+.xb.on{color:var(--green);background:var(--gd)}
+.xe{display:none}
+.xe.on{display:block;animation:fs .35s ease}
+@keyframes fs{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:translateX(0)}}
+.xr{font-family:var(--display);font-size:1.4rem;font-weight:700;color:var(--ink);letter-spacing:-.02em;margin-bottom:.4rem}
+.xmeta{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.xco{font-size:13px;font-weight:600;color:var(--green)}
+.xdot{color:var(--ink3);font-size:10px}
+.xper{font-size:12px;color:var(--ink3);background:var(--bg3);border:1px solid var(--border);padding:.18rem .65rem;border-radius:5px}
+.xnow{font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--green);background:var(--gd);border:1px solid var(--gl);padding:.18rem .65rem;border-radius:5px;animation:blink 2.5s infinite}
+.xbody{border-left:1px solid var(--border2);padding-left:1.5rem;margin-bottom:1.5rem}
+.xul{list-style:none;display:flex;flex-direction:column;gap:.65rem}
+.xul li{font-size:14px;font-weight:400;color:var(--ink2);padding-left:1.2rem;position:relative;line-height:1.65}
+.xul li::before{content:'→';position:absolute;left:0;color:var(--green);font-size:11px;top:3px;font-weight:600}
+.xul li strong{color:var(--ink);font-weight:600}
+.xchips{display:flex;flex-wrap:wrap;gap:.4rem}
+.xc{font-size:11px;font-weight:500;background:var(--bg3);border:1px solid var(--border);color:var(--ink3);padding:.22rem .7rem;border-radius:6px}
+.xc.g{background:var(--gd);border-color:var(--gl);color:var(--green)}
+
+/* skills */
+#skills{background:var(--bg)}
+.skgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin-top:3rem}
+.sk{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);padding:1.6rem;transition:border-color .25s,transform .25s}
+.sk:hover{border-color:var(--border2);transform:translateY(-3px)}
+.skh{display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem}
+.skico{width:34px;height:34px;border-radius:8px;background:var(--gd);border:1px solid var(--gl);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--green)}
+.skn{font-family:var(--display);font-size:.82rem;font-weight:600;color:var(--ink);letter-spacing:.03em;text-transform:uppercase}
+.skps{display:flex;flex-wrap:wrap;gap:.4rem}
+.sp{font-size:12px;font-weight:500;background:var(--bg3);border:1px solid var(--border);color:var(--ink3);padding:.25rem .75rem;border-radius:100px;transition:all .18s}
+.sp:hover{border-color:var(--gl);color:var(--green)}
+.sp.c{background:var(--gd);border-color:var(--gl);color:var(--green)}
+.edu{margin-top:1.2rem;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);padding:1.4rem 1.6rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+.edl{display:flex;align-items:center;gap:.9rem}
+.edico{width:34px;height:34px;border-radius:8px;background:var(--gd);border:1px solid var(--gl);display:flex;align-items:center;justify-content:center;color:var(--green);flex-shrink:0}
+.edt{font-family:var(--display);font-size:.95rem;font-weight:600;color:var(--ink)}
+.eds{font-size:12px;color:var(--ink3);margin-top:.2rem}
+.edy{font-size:12px;color:var(--ink3);background:var(--bg3);border:1px solid var(--border);padding:.25rem .8rem;border-radius:6px;white-space:nowrap}
+
+/* contact — no form, just links */
+#contact{background:var(--bg2)}
+.ct-head{margin-bottom:3.5rem}
+.ct-sub{font-size:15px;color:var(--ink2);margin-top:.75rem;max-width:500px;line-height:1.7}
+
+.ct-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden}
+.ccard{display:flex;flex-direction:column;justify-content:space-between;background:var(--bg2);padding:1.8rem 1.6rem;text-decoration:none;position:relative;overflow:hidden;transition:background .25s;min-height:160px}
+.ccard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--green);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.ccard:hover{background:var(--bg3)}
+.ccard:hover::before{transform:scaleX(1)}
+.ccard-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:auto}
+.ccard-value{font-family:var(--display);font-size:1.05rem;font-weight:600;color:var(--ink);line-height:1.3;margin-top:1.4rem;word-break:break-word}
+.ccard-arrow{font-size:1.1rem;color:var(--green);margin-top:.8rem;display:inline-block;transition:transform .2s}
+.ccard:hover .ccard-arrow{transform:translate(3px,-3px)}
+
+.avail-strip{display:flex;align-items:center;gap:.75rem;margin-top:1px;background:var(--bg2);border:1px solid var(--border);border-radius:0 0 var(--rl) var(--rl);padding:1.1rem 1.6rem}
+.adot{width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0;box-shadow:0 0 10px rgba(62,207,142,.8);animation:blink 2s infinite}
+.avail-strip p{font-size:12px;font-weight:600;color:var(--green)}
+
+/* footer — the "built by me" footer */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:3.5rem 0 2.5rem}
+.ft{max-width:var(--max);margin:0 auto;padding:0 2.5rem}
+.ft-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:2rem;padding-bottom:2.5rem;border-bottom:1px solid var(--border)}
+.ft-brand{}
+.ft-logo{font-family:var(--display);font-size:1.5rem;font-weight:700;color:var(--ink);letter-spacing:-.02em;margin-bottom:.4rem}
+.ft-logo em{color:var(--green);font-style:normal}
+.ft-tagline{font-size:13px;color:var(--ink3);max-width:260px;line-height:1.6}
+.ft-tagline span{color:var(--green)}
+
+.ft-links-wrap{display:flex;gap:4rem;flex-wrap:wrap}
+.ft-col{}
+.ft-col-title{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:1rem}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.ft-col a{font-size:13px;font-weight:500;color:var(--ink2);text-decoration:none;transition:color .2s}
+.ft-col a:hover{color:var(--green)}
+
+.ft-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding-top:2rem}
+.ft-copy{font-size:12px;color:var(--ink3);line-height:1.6}
+.ft-copy em{color:var(--ink);font-style:normal;font-weight:500}
+.ft-copy strong{color:var(--green);font-weight:600}
+.ft-built{display:inline-flex;align-items:center;gap:.5rem;font-size:11px;font-weight:500;color:var(--ink3);background:var(--bg2);border:1px solid var(--border);padding:.35rem .85rem;border-radius:100px}
+.ft-built .dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 2s infinite}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.reveal.vis{opacity:1;transform:translateY(0)}
+
+@media(max-width:720px){
+  .nl{display:none}
+  .krow{grid-template-columns:1fr 1fr}
+  .wrow{grid-template-columns:1fr 1fr}
+  .xgrid{grid-template-columns:1fr;gap:2rem}
+  .xsticky{position:static}
+  .xnav{flex-direction:row;flex-wrap:wrap;gap:.4rem}
+  .skgrid{grid-template-columns:1fr}
+  .ct-cards{grid-template-columns:1fr 1fr}
+  .ft-top{flex-direction:column}
+  .ft-bottom{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:480px){
+  .krow,.wrow{grid-template-columns:1fr}
+  .ct-cards{grid-template-columns:1fr}
+  .hctas{flex-direction:column}
+}
+</style>
 </head>
-<body id="page-top">
-<!-- Navigation-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-    <a class="navbar-brand js-scroll-trigger" href="#page-top">
-        <span class="d-block d-lg-none">Aniket Mahajan</span>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
-            class="navbar-toggler-icon"></span></button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#project">Projects (Archive)</a></li>
-            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Experience</a></li>
-            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Education</a></li>
-            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
-            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Interests</a></li>
-            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Publications</a></li>
-        </ul>
-    </div>
+<body>
+
+<div class="cur" id="C"></div>
+<div class="cur-r" id="CR"></div>
+
+<nav id="nav">
+  <div class="nw">
+    <a href="#hero" class="logo">AM<em>.</em></a>
+    <ul class="nl">
+      <li><a href="#impact">Impact</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="Aniket_Mahajan_Resume.pdf" download class="ndl">↓ Resume</a>
+  </div>
 </nav>
-<!-- Page Content-->
-<div class="container-fluid p-0">
-    <!-- About-->
-    <section class="resume-section" id="about">
-        <div class="resume-section-content">
-            <h1 class="mb-0">
-                Aniket
-                <span class="text-primary">Mahajan</span>
-            </h1>
-            <div class="subheading mb-5">
-                New Delhi, India - 110042<br>
-                Status - <a href="#">Senior Software Engineer at PocketFM | Web Developer</a>
-            </div>
-            <p class="lead mb-5">Front-End Developer with over 4 years of experience, specializing in React, Next.js, and other modern web technologies. I build scalable, high-performance applications with a focus on user experience and responsiveness. Backed by a Master's Degree in Computer Application,<br/>I bring strong engineering principles and problem-solving skills to every project, delivering efficient, user-centric solutions.</p>
-            <div class="social-icons">
-                <a class="social-icon" target="_blank" href="https://www.linkedin.com/in/aniket-mahajan-27844313a/"><i
-                        class="fab fa-linkedin-in"></i></a>
-                <a class="social-icon" target="_blank" href="https://github.com/aniketmahajan007/"><i
-                        class="fab fa-github"></i></a>
-                <a class="social-icon" target="_blank"
-                   href="https://aniketmahajan007.github.io/aniketmahajan.github.io/assets/AniketMahajan_Resume.pdf"><i
-                        class="fas fa-file"></i></a>
-            </div>
-        </div>
-    </section>
-    <hr class="m-0"/>
-    <!-- Projects-->
-    <section class="resume-section" id="project">
-        <div class="resume-section-content">
-            <h2 class="mb-5">Projects</h2>
-            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">G-Mail Clone (Frontend) </h3>
-                    <a href="https://cl-4513b.web.app/" target="_blank">https://cl-4513b.web.app/</a>
-                    <br><br>
-                    <p>A beautiful G-mail clone developed using react, redux, MaterialUI, Firebase which contain
-                        functionality like send message etc.
-                        <br>Built With: HTML, CSS, JavaScript, ReactJS, Redux, Firebase</p>
-                    <span class="text-primary">August 2021</span><br><br>
-                </div>
-                <div class="flex-shrink-0"><img height="150px" alt="Zoom Clone" src="assets/project/gmail.PNG"></div>
-            </div>
-            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">Zoom / G-Meet Clone</h3>
-                    <a href="https://aniketmahajan007.github.io/Zoom_Clone/frontend/zoom.html" target="_blank">https://aniketmahajan007/Zoom_Clone/</a>
-                    <br><br>
-                    <p>1 V 1 premium real time video calling and chat room with various controls like hde video, mute
-                        video etc.
-                        <br>Built With: NodeJS, HTML, CSS, JavaScript, PeerJS, Websockets, socket.io API</p>
-                    <span class="text-primary">July 2021</span><br><br>
-                </div>
-                <div class="flex-shrink-0"><img height="150px" alt="Zoom Clone" src="assets/project/zoomclone.PNG">
-                </div>
-            </div>
-            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">HotStar Clone ( Frontend )</h3>
-                    <a href="https://hotstar-clone-25168.web.app/"
-                       target="_blank">https://hotstar-clone-25168.web.app/</a>
-                    <br><br>
-                    <p>A beautiful and responsive hotstar clone developed using react and contains firebase login
-                        functionality.
-                        <br>Built With: HTML, CSS, JavaScript, ReactJS, Redux, Firebase</p>
-                    <span class="text-primary">June 2021</span><br><br>
-                </div>
-                <div class="flex-shrink-0"><img height="180px" alt="Hotstar" src="assets/project/hotstar.PNG"></div>
-            </div>
-            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">Spotify Clone ( Frontend )</h3>
-                    <a href="https://spotify-da8c6.web.app/" target="_blank">https://spotify-da8c6.web.app/</a>
-                    <br><br>
-                    <p>A beautiful and responsive spotify clone developed using react and spotify API.
-                        <br>Built With: HTML, CSS, JavaScript, ReactJS, React Context API, Spotify API, Material UI</p>
-                    <span class="text-primary">June 2021</span>
-                    <br><br>
-                </div>
-                <div class="flex-shrink-0"><img height="180px" alt="Hotstar" src="assets/project/spotify.PNG"></div>
-            </div>
-            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">Training & Placement Portal</h3>
-                    <a href="http://pccoetnp.epizy.com/" target="_blank">http://pccoetnp.epizy.com/</a>
-                    <br><br>
-                    <p>Developing a portal for college to easily manage students information needed while students
-                        occurring in placement year and also notifying students based on their performance throughout
-                        the course which company allowed to participate in their interview process and much more.<br>Built
-                        With: HTML. CSS. Javascript. Jquery. PHP. REST API. MYSQL</p>
-                    <span class="text-primary">Nov 2020 - Present</span><br><br>
-                </div>
-                <div class="flex-shrink-0"><img height="165px" alt="TnP" src="assets/project/tnp.PNG"></div>
-            </div>
-            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">Array Sorting Visualizer</h3>
-                    <a href="https://aniketmahajan007.github.io/Sort_Visualize/" target="_blank">https://aniketmahajan007/Sort_Visualize/</a>
-                    <br><br>
-                    <p>Visualize in action,<br>
-                        how sorting is perform on random number of arrays.
-                        Currently Features: ( Bubble Sort , Selection Sort, Quick Sort )<br>
-                        Built with React.js.</p>
-                    <span class="text-primary">May 2020 - Oct 2020</span><br><br>
-                </div>
-                <div class="flex-shrink-0"><img height="170px" alt="Hotstar" src="assets/project/sorting.PNG"></div>
-            </div>
-            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">Animefansbase Application</h3>
-                    <a target="_blank" href="https://play.google.com/store/apps/details?id=com.animefansbase.app">https://play.google.com/store/apps/details?id=com.animefansbase.app</a><br><br>
-                    <p>More than 1.5k+ Download.<br>
-                        A social anime community contain collection of thousand of quote, artwork, amv, anime music,
-                        anime soundtrack, anime quiz etc and connect anime fans together<br>
-                        Built with : Cordova. Framework7. Javascript. Animefansbase API. SQLite. DOM7. HTML. CSS.
-                        Webpack. Babel. Java. Git </p>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">May 2020 - Oct 2020</span></div>
-            </div>
-            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">Simple Todo App in Flask | JSON | SQlite | MySQL</h3>
-                    <a target="_blank" href="https://todo-in-sql-flask.herokuapp.com/">SQL :
-                        https://todo-in-sql-flask.herokuapp.com/</a><br>
-                    <a target="_blank" href="https://todo-in-sql-flask.herokuapp.com/">JSON :
-                        https://flasktodo-aniket.herokuapp.com/</a><br><br>
-                    <p>Simple To Do Application in Flask with different database:<br>
-                        Built with : Python, Flask, JSON, SQLite, MySQL </p>
-                    <span class="text-primary">March 2021</span><br><br>
-                </div>
-                <div class="flex-shrink-0"><img height="160px" alt="Hotstar" src="assets/project/todo.PNG"></div>
-            </div>
-            <div class="d-flex flex-column flex-md-row justify-content-between">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">Twitter/Facebook Bot</h3><br>
-                    <p>Automatically post/tweet on given time interval.<br>Built with : Javascript. PHP. Cron Jobs.
-                        Twitter API. Facebook API. MySQL</p>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">April 2020 - May 2020</span></div>
-            </div>
-            <br>
-            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">10000+ Quotes</h3>
-                    <a target="_blank"
-                       href="https://play.google.com/store/apps/details?id=app.animequote_animefansbase.com">https://play.google.com/store/apps/details?id=app.animequote_animefansbase.com</a><br><br>
-                    <p>More than 12k+ Download.<br>
-                        Quote app specially design for anime fans looking for anime quotes and popular anime characters
-                        dialogues.
-                        <br>Built with : Cordova. Framework7. Javascript. Animefansbase API. SQLite. DOM7. HTML. CSS.
-                        Webpack. Babel. Java. Git </p>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">Dec 2019</span></div>
-            </div>
-            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">100000+ HD Wallpaper Application</h3>
-                    <a target="_blank"
-                       href="https://play.google.com/store/apps/details?id=app.animewallpaper_animefansbase.com">https://play.google.com/store/apps/details?id=app.animewallpaper_animefansbase.com</a><br><br>
-                    <p>More than 20k+ Download.<br>
-                        Wallpaper app specially design for anime fans looking for high quality anime art or
-                        wallpaper.<br>
-                        It contains millions of high quality anime wallpaper and anime illustration drawn or submitted
-                        to animefansbase all over the world.
-                        <br>Built with : Cordova. Framework7. Javascript. Animefansbase API. SQLite. DOM7. HTML. CSS.
-                        Webpack. Babel. Java. Git </p>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">Aug 2019 - Sep 2019</span></div>
-            </div>
-            <div class="d-flex flex-column flex-md-row justify-content-between">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">AnimeFansbase ( Social Network Community )</h3>
-                    <a target="_blank" href="https://www.animefansbase.com/">https://www.animefansbase.com/</a><br><br>
-                    <p>Serving more than 1 million+ request each month.<br>
-                        Social network site specially designs for anime fans contains thousands of artworks, quote,
-                        quiz, polls, cosplay, article etc. submitted by anime fans all around the world and a profile,
-                        private chat system to easily connect them together<br>
-                        Built with: Javascript. Jquery. HTML. CSS. Bootstrap. PHP. MySQL. Redis</p>
-                    <span class="text-primary">April 2018 - Dec 2018</span><br><br>
-                </div>
-                <div class="flex-shrink-0"><img height="180px" alt="Hotstar" src="assets/project/afb.PNG"></div>
-            </div>
-        </div>
-    </section>
-    <!-- Experience-->
-    <section class="resume-section" id="experience">
-        <div class="resume-section-content">
-            <h2 class="mb-5">Experience</h2>
-            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">Senior Software Development Engineer - FrontEnd</h3>
-                    <div class="subheading mb-3">PocketFM</div>
-                    <div class="subheading mb-3">Bengaluru - ( Remote )</div>
-                    <ol style="list-style-type: disc;">
-                        <li>Redesigned the website using Next.js 15 App Router, TypeScript, and Zustand, integrating Shaka Player for DRM-protected media streaming and implementing payment workflows, while leveraging a custom CSS utility library to establish a modular and scalable architecture.</li>
-                        <li>Integrated SonarQube and various other tools into the CI pipeline to enforce code quality standards, ensuring test coverage consistently remained above 90% across critical repo.</li>
-                        <li>Created, maintained, and scaled the central CSS design system repository using Radix UI, enabling consistent UI components and accelerating feature rollout across multiple products and teams.</li>
-                        <li>Mentored junior developers through code reviews, task planning, and technical guidance to support their growth and ensure code quality.</li>
 
-                    </ol>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">April 2025 - Present</span></div>
-            </div>
-            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">Software Development Engineer - FrontEnd</h3>
-                    <div class="subheading mb-3">PocketFM</div>
-                    <div class="subheading mb-3">Bengaluru - ( Remote )</div>
-                    <ol style="list-style-type: disc;">
-                        <li>Migrated complete codebase from JS to TS, reducing bugs by 20% and improving long-term maintainability.</li>
-                        <li>Refactored the complex authentication system using NextAuth, added refresh token support, and removed Firebase, improving security and user trust.</li>
-                        <li>Upgraded payments to the latest APIs with modular architecture, ensuring &gt;90% success rate and zero downtime.</li>
-                        <li>Replaced Redux with Zustand and custom API wrappers with React Query, simplifying state management and caching.</li>
-                        <li>Increased test coverage to 65% overall and 95%+ for new features using Jest, Cypress, and RTL.</li>
-                        <li>Developed reusable and responsive UI components using ShadCN and Tailwind, improving accessibility and cross-browser consistency.</li>
-                        <li>Set up CI/CD pipelines with GitHub Actions, automating audits, test coverage snapshots, and deployments.</li>
-                        <li>Code reviews and led internal sessions on modern frameworks like Remix.js.</li>
-                        <li>Worked on DRM players (Shaka).</li>
-                        <li>Improved web performance by 30–50%, reaching a 95+ Lighthouse score through asset optimization and TypeScript migration.</li>
+<section id="hero">
+  <div class="hi">
+    <div class="hstat">
+      <div class="hdot"></div>
+      <span>Available for worldwide remote roles</span>
+    </div>
+    <h1 class="hname">Aniket<br><span class="g">Mahajan</span></h1>
+    <p class="hrole">Lead Frontend Engineer</p>
+    <p class="hdesc">
+      I've spent <strong>4+ years</strong> at Pocket FM leading frontend across
+      <strong>4 consumer products</strong>, managing <strong>6+ engineers</strong>, and
+      shipping work that cut engineering overhead by <strong>60%</strong> and load times by
+      <strong>30–50%</strong>. I care about craft, speed, and teams that ship.
+    </p>
+    <div class="hctas">
+      <a href="#contact" class="btnp">
+        <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Contact Me
+      </a>
+      <a href="Aniket_Mahajan_Resume.pdf" download class="btng">
+        <svg class="ci" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Resume
+      </a>
+      <a href="https://linkedin.com/in/aniket-mahajan-27844313a" target="_blank" class="btng">
+        <svg class="ci" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+    </div>
+    <div class="hpills">
+      <span class="pill hi">React</span><span class="pill hi">Next.js 16</span><span class="pill hi">TypeScript</span>
+      <span class="pill">Tailwind CSS</span><span class="pill">Zustand</span><span class="pill">React Query</span>
+      <span class="pill">Datadog</span><span class="pill">GitHub Actions</span><span class="pill">MCP Server</span><span class="pill">Radix UI</span>
+    </div>
+  </div>
+</section>
 
-                    </ol>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">March 2022 - March 2025</span></div>
-            </div>
-            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">Software Engineer</h3>
-                    <div class="subheading mb-3">Monotype Solutions ( Internship )</div>
-                    <div class="subheading mb-3">Noida</div>
-                    <p>Working with global teams to build scalable web-based applications<br>
-                        Providing reliable solutions to a variety of problems and working with the broader team<br> to
-                        build and maintain high performance, flexible, and highly scalable web and mobile-based
-                        applications.
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">Oct 2021 - Feb 2022</span></div>
-            </div>
-            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">Android And Web Developer ( Internship )</h3>
-                    <div class="subheading mb-3">Khairnar Technologies Pvt Ltd.</div>
-                    <div class="subheading mb-3">Pune. Maharashtra</div>
-                    <p>Working with android and web development team for building application " Study Duniya "<br>
-                        while also working on its development of API so that they can interact each other.
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">Nov 2018 - April 2019</span></div>
-            </div>
-
-        </div>
-    </section>
-    <hr class="m-0"/>
-    <!-- Education-->
-    <section class="resume-section" id="education">
-        <div class="resume-section-content">
-            <h2 class="mb-5">Education</h2>
-            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">Pimpri Chinchwad College of Engineering</h3>
-                    <div class="subheading mb-3">Master of Computer Application</div>
-                    <div>Pune, Maharashtra</div>
-                    <p>CGPA: 9.1</p>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">August 2019 - July 2022</span></div>
-            </div>
-            <div class="d-flex flex-column flex-md-row justify-content-between">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">Ajeenkya DY Patil University</h3>
-                    <div class="subheading mb-3">Bachelors of Computer Application</div>
-                    <div>Pune, Maharashtra</div>
-                    <p>CGPA: 8.8</p>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">August 2016 - Jun 2019</span></div>
-            </div>
-        </div>
-    </section>
-    <hr class="m-0"/>
-    <!-- Skills-->
-    <section class="resume-section" id="skills">
-        <div class="resume-section-content">
-            <h2 class="mb-5">Skills</h2>
-            <div class="subheading mb-3">Programming Languages & Tools</div>
-            <ul class="list-inline dev-icons">
-                <li class="list-inline-item"><i class="fab fa-html5"></i></li>
-                <li class="list-inline-item"><i class="fab fa-css3-alt"></i></li>
-                <li class="list-inline-item"><i class="fab fa-js-square"></i></li>
-                <li class="list-inline-item"><i class="fab fa-java"></i></li>
-                <li class="list-inline-item"><i class="fab fa-react"></i></li>
-                <li class="list-inline-item"><i class="fab fa-node-js"></i></li>
-                <li class="list-inline-item"><i class="fab fa-sass"></i></li>
-                <li class="list-inline-item"><i class="fab fa-bootstrap"></i></li>
-                <li class="list-inline-item"><i class="fab fa-npm"></i></li>
-            </ul>
-            <div class="row">
-                <div class="col-md-6">
-                    <ul class="fa-ul mb-0">
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Javascript
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            NextJS
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            React JS
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Remix JS
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Zustand
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Redux
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            HTML
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            JQuery
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Cascading Style Sheets (CSS)
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            HTML5
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            GIT
-                        </li>
-
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <ul class="fa-ul mb-0">
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            NodeJS
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            LAMP Stack
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            React Native
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Cordova
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Framework7
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Ionic
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            Tailwind
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            JSON
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            MySQL
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            XML
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fas fa-check"></i></span>
-                            PHP
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    <hr class="m-0"/>
-    <!-- Interests-->
-    <section class="resume-section" id="interests">
-        <div class="resume-section-content">
-            <h2 class="mb-5">Interests</h2>
-            <p>
-                When not coding,<br/>I indulge in a diverse range of interests including sci-fi, mystery, comedy, and fantasy movies, anime, and television shows.<br/>I'm also passionate about cooking and spend much of my free time exploring the latest in technology or competing in gaming.
-                <br/>Outdoors, I relish spending time with friends and family, whether it's traveling or simply enjoying each other's company.
-            </p>
-        </div>
-    </section>
-    <hr class="m-0"/>
-    <!-- Awards-->
-    <section class="resume-section" id="awards">
-        <div class="resume-section-content">
-            <h2 class="mb-5">Publications</h2>
-            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">Enhanced Automated and Secure Parking Structure & Tactics (IJIREEICE)</h3>
-                    <a href="http://ijireeice.com/upload/2017/march-17/IJIREEICE%2014.pdf" target="_blank">http://ijireeice.com/upload/2017/march-17/IJIREEICE%2014.pdf</a>
-                    <br><br>
-                    <p>The swift improvement in Economic, Social and technological aspects has taken lifestyle to
-                        another level. <br>The level at which the current management systems lag behind or barely keep
-                        up with the ever-changing and ever evolving standards of living. Apart from that, an even bigger
-                        threat is the immensely growing populace and of course, their Vehicles. <br>The Paper discusses
-                        the complications of a major part of Vehicle management, The Parking. Providing a solution for
-                        the hurdles faced in the running Parking Systems using a complete automation of every manual
-                        operation with an integrated computing system to overcome the hurdle and further more to
-                        improvise the management.</p>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">March 2017</span></div>
-            </div>
-            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">A Study in Implementation of Home Services in terms of Cake Service using
-                        Digitalized App (IJIRMPS)</h3>
-                    <a href="https://docs.google.com/viewer?url=https%3A%2F%2Fwww.ijirmps.org%2Fspecial-issues%2F1%2F2.pdf"
-                       target="_blank">https://docs.google.com/viewer?url=https%3A%2F%2Fwww.ijirmps.org%2Fspecial-issues%2F1%2F2.pdf</a>
-                    <br><br>
-                    <p>In the advancing world of technology, Mobile application are a rapidly growing segment of the
-                        global market. Mobile application are evolving at a meteor pace to give users a rich and a fast
-                        user experience. In this paper we will see how to enhance or improve cake service business.The
-                        cake service business works on two main components customer and cake owner or employee. The
-                        problem customer faces is that they have to come all the way to cake shop to choose cake which
-                        is time consuming and if they order to create customizable cake such as for event there is no
-                        way for customer to track the progress of their order cake or they usually call to check
-                        progress because of that cake owner also has to keep mobile device near him and tell progress by
-                        asking workers which are in charge of making order, this paper provide efficient solution how to
-                        counter and solve this problem.</p>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">Nov 2018</span></div>
-            </div>
-        </div>
-    </section>
+<div class="mqw">
+  <div class="mqt" aria-hidden="true">
+    <div class="mqi"><span class="mqn">60%</span><span class="mqtx">Engineering overhead cut</span></div>
+    <div class="mqi"><span class="mqn">30–50%</span><span class="mqtx">Load time improvement</span></div>
+    <div class="mqi"><span class="mqn">30%</span><span class="mqtx">Faster UI development</span></div>
+    <div class="mqi"><span class="mqn">6+</span><span class="mqtx">Engineers led</span></div>
+    <div class="mqi"><span class="mqn">65%</span><span class="mqtx">Test coverage achieved</span></div>
+    <div class="mqi"><span class="mqn">90%+</span><span class="mqtx">Payment success rate</span></div>
+    <div class="mqi"><span class="mqn">4</span><span class="mqtx">Consumer products owned</span></div>
+    <div class="mqi"><span class="mqn">20%</span><span class="mqtx">Bug reduction via TypeScript</span></div>
+    <div class="mqi"><span class="mqn">60%</span><span class="mqtx">Engineering overhead cut</span></div>
+    <div class="mqi"><span class="mqn">30–50%</span><span class="mqtx">Load time improvement</span></div>
+    <div class="mqi"><span class="mqn">30%</span><span class="mqtx">Faster UI development</span></div>
+    <div class="mqi"><span class="mqn">6+</span><span class="mqtx">Engineers led</span></div>
+    <div class="mqi"><span class="mqn">65%</span><span class="mqtx">Test coverage achieved</span></div>
+    <div class="mqi"><span class="mqn">90%+</span><span class="mqtx">Payment success rate</span></div>
+    <div class="mqi"><span class="mqn">4</span><span class="mqtx">Consumer products owned</span></div>
+    <div class="mqi"><span class="mqn">20%</span><span class="mqtx">Bug reduction via TypeScript</span></div>
+  </div>
 </div>
-<!-- Bootstrap core JS-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Third party plugin JS-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-<!-- Core theme JS-->
-<script src="js/scripts.js"></script>
+
+<section id="impact">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sl">By the numbers</div>
+      <h2 class="st">Measurable results,<br>every single sprint.</h2>
+      <p class="isub">Four years shipping at Pocket FM. Every number is tied to a real delivery.</p>
+    </div>
+    <div class="krow reveal">
+      <div class="kc"><div class="kn">60<sup>%</sup></div><div class="kt">Engineering tickets eliminated after shipping internal CMS tool</div></div>
+      <div class="kc"><div class="kn">50<sup>%</sup></div><div class="kt">Load time reduction via bundle analysis &amp; lazy loading</div></div>
+      <div class="kc"><div class="kn">30<sup>%</sup></div><div class="kt">Faster UI dev across 3+ product pods with design system</div></div>
+      <div class="kc"><div class="kn">6<sup>+</sup></div><div class="kt">Engineers mentored and managed as Lead</div></div>
+    </div>
+    <div class="wrow reveal">
+      <div class="wc"><div class="wn">65%</div><div class="wt">Test coverage grown from near-zero. 95%+ on all new features via Jest, Cypress &amp; RTL.</div><span class="wtag">Quality</span></div>
+      <div class="wc"><div class="wn">90%+</div><div class="wt">Payment transaction success rate achieved with zero-downtime API cutover.</div><span class="wtag">Reliability</span></div>
+      <div class="wc"><div class="wn">20%</div><div class="wt">Bug reduction after leading full JavaScript → TypeScript migration of the entire codebase.</div><span class="wtag">Stability</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:3.5rem">
+      <div class="sl">Work history</div>
+      <h2 class="st">Where I've built,<br>what I've shipped.</h2>
+    </div>
+    <div class="xgrid">
+      <div class="xsticky reveal">
+        <p style="font-size:11px;color:var(--ink3);font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.75rem">Roles</p>
+        <div class="xnav">
+          <button class="xb on" data-id="e1">Lead FE Engineer</button>
+          <button class="xb" data-id="e2">Senior SWE</button>
+          <button class="xb" data-id="e3">SDE</button>
+          <button class="xb" data-id="e4">Earlier Roles</button>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="xe on" id="e1">
+          <div class="xr">Lead Frontend Engineer</div>
+          <div class="xmeta"><span class="xco">Pocket FM</span><span class="xdot">·</span><span class="xper">Apr 2026 – Present</span><span class="xnow">● NOW</span></div>
+          <div class="xbody">
+            <ul class="xul">
+              <li>Leading frontend architecture across <strong>4 consumer products</strong> — Pocket TV, Pocket FM, AI Blaze, App Webview on Next.js 16</li>
+              <li>Expanded team to <strong>6+ engineers</strong>; established sprint rituals, code review standards, and delivery velocity practices</li>
+              <li>Driving <strong>AI-augmented dev workflows</strong> (Claude, MCP tooling) compressing debugging and code-gen cycles across the team</li>
+              <li>Accountable for production health via <strong>Datadog + Lighthouse</strong> monitoring tied directly to Core Web Vitals sprint goals</li>
+            </ul>
+          </div>
+          <div class="xchips"><span class="xc g">Next.js 16</span><span class="xc g">Team Lead</span><span class="xc g">MCP Tooling</span><span class="xc">Datadog</span><span class="xc">System Design</span><span class="xc">Core Web Vitals</span></div>
+        </div>
+        <div class="xe" id="e2">
+          <div class="xr">Senior Software Engineer</div>
+          <div class="xmeta"><span class="xco">Pocket FM</span><span class="xdot">·</span><span class="xper">Apr 2025 – Mar 2026</span></div>
+          <div class="xbody">
+            <ul class="xul">
+              <li>Architected <strong>multi-product frontend platform</strong> on Next.js 16 — improved Core Web Vitals, enabled modular architecture</li>
+              <li>Built <strong>Payload CMS internal tool</strong> eliminating 60% of engineering tickets — non-technical teams publish independently</li>
+              <li>Designed <strong>centralized design system</strong> (Radix UI + Tailwind) + custom MCP Server → 30% faster UI dev across 3+ pods</li>
+              <li>Instrumented <strong>Meta Pixel + GA4</strong> across consumer products with custom conversion events and funnel monitoring</li>
+              <li>Built <strong>Datadog + Lighthouse loop</strong> tying SEO metrics to sprint goals — measurable TTFB and discoverability gains</li>
+            </ul>
+          </div>
+          <div class="xchips"><span class="xc g">Payload CMS</span><span class="xc g">Design System</span><span class="xc g">Radix UI</span><span class="xc">GA4</span><span class="xc">Meta Pixel</span><span class="xc">SEO</span></div>
+        </div>
+        <div class="xe" id="e3">
+          <div class="xr">Software Development Engineer</div>
+          <div class="xmeta"><span class="xco">Pocket FM</span><span class="xdot">·</span><span class="xper">Aug 2022 – Mar 2025</span></div>
+          <div class="xbody">
+            <ul class="xul">
+              <li>Drove <strong>30–50% web performance improvement</strong> via systematic asset optimization, lazy loading, and bundle analysis</li>
+              <li>Migrated <strong>100% of codebase JS → TypeScript</strong>; cut reported bugs by 20%, enabled stricter code review standards</li>
+              <li>Rebuilt <strong>auth system with NextAuth</strong> + refresh token support; removed Firebase dependency entirely</li>
+              <li>Overhauled <strong>payment integration</strong> to latest APIs — achieved 90%+ success rate, zero downtime during cutover</li>
+              <li>Replaced Redux → <strong>Zustand</strong> and API layers → <strong>React Query</strong>; halved the boilerplate footprint</li>
+              <li>Grew test coverage <strong>from near-zero to 65%</strong>; 95%+ for new features (Jest, Cypress, RTL)</li>
+              <li>Built <strong>CI/CD via GitHub Actions</strong> with automated audit checks and coverage snapshots on every PR</li>
+            </ul>
+          </div>
+          <div class="xchips"><span class="xc g">TypeScript</span><span class="xc g">Zustand</span><span class="xc g">React Query</span><span class="xc">NextAuth</span><span class="xc">Jest + Cypress</span><span class="xc">GitHub Actions</span></div>
+        </div>
+        <div class="xe" id="e4">
+          <div class="xr">Earlier Roles</div>
+          <div class="xmeta"><span class="xper">2018 – 2022</span></div>
+          <div class="xbody">
+            <ul class="xul">
+              <li><strong>Frontend Engineer Intern · Pocket FM</strong> (Mar–Jul 2022) — Shipped production features; contributed to pixel-perfect responsive component library</li>
+              <li><strong>SWE Intern · Monotype Solutions India, Noida</strong> (Oct 2021–Jan 2022) — Built and optimized internal web tooling for non-engineering teams</li>
+              <li><strong>SWE Intern · Khainar Technologies, Pune</strong> (Nov 2018–Apr 2019) — Developed StudyDuniya web app full-stack from data layer to UI</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sl">Technical expertise</div>
+      <h2 class="st">The stack I live in.</h2>
+    </div>
+    <div class="skgrid">
+      <div class="sk reveal">
+        <div class="skh"><div class="skico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><div class="skn">Frontend Core</div></div>
+        <div class="skps"><span class="sp c">React</span><span class="sp c">Next.js</span><span class="sp c">TypeScript</span><span class="sp">Tailwind CSS</span><span class="sp">Radix UI</span><span class="sp">ShadCN</span></div>
+      </div>
+      <div class="sk reveal">
+        <div class="skh"><div class="skico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div><div class="skn">State & Data</div></div>
+        <div class="skps"><span class="sp c">Zustand</span><span class="sp c">React Query</span><span class="sp">Redux</span><span class="sp">NextAuth</span><span class="sp">Payload CMS</span><span class="sp">Shaka DRM</span></div>
+      </div>
+      <div class="sk reveal">
+        <div class="skh"><div class="skico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><div class="skn">Testing & DevOps</div></div>
+        <div class="skps"><span class="sp c">Jest</span><span class="sp c">Cypress</span><span class="sp">RTL</span><span class="sp">GitHub Actions</span><span class="sp">AWS</span><span class="sp">Cloudflare</span></div>
+      </div>
+      <div class="sk reveal">
+        <div class="skh"><div class="skico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="skn">Leadership</div></div>
+        <div class="skps"><span class="sp c">Team Lead</span><span class="sp c">System Design</span><span class="sp">Datadog</span><span class="sp">Lighthouse</span><span class="sp">MCP Server</span><span class="sp">Agile</span></div>
+      </div>
+    </div>
+    <div class="edu reveal">
+      <div class="edl">
+        <div class="edico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+        <div><div class="edt">Master of Computer Application</div><div class="eds">Savitribai Phule Pune University · Mobile &amp; Application Development</div></div>
+      </div>
+      <div class="edy">2019 – 2022</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT — no form, just clean cards -->
+<section id="contact">
+  <div class="wrap">
+    <div class="ct-head reveal">
+      <div class="sl">Get in touch</div>
+      <h2 class="st">Let's build something<br>remarkable together.</h2>
+      <p class="ct-sub">Open to senior &amp; lead frontend roles, remote-first teams, and interesting product challenges. Pick the channel that works for you.</p>
+    </div>
+
+    <div class="reveal">
+      <div class="ct-cards">
+        <a href="mailto:aniketmahajanwork@gmail.com" class="ccard">
+          <div class="ccard-label">Email</div>
+          <div>
+            <div class="ccard-value">aniketmahajanwork<br>@gmail.com</div>
+            <div class="ccard-arrow">↗</div>
+          </div>
+        </a>
+        <a href="https://linkedin.com/in/aniket-mahajan-27844313a" target="_blank" class="ccard">
+          <div class="ccard-label">LinkedIn</div>
+          <div>
+            <div class="ccard-value">linkedin.com/in/<br>aniket-mahajan</div>
+            <div class="ccard-arrow">↗</div>
+          </div>
+        </a>
+        <a href="tel:+917710943083" class="ccard">
+          <div class="ccard-label">Phone</div>
+          <div>
+            <div class="ccard-value">+91 77109 43083</div>
+            <div class="ccard-arrow">↗</div>
+          </div>
+        </a>
+        <a href="Aniket_Mahajan_Resume.pdf" download class="ccard">
+          <div class="ccard-label">Resume</div>
+          <div>
+            <div class="ccard-value">Download<br>PDF ↓</div>
+            <div class="ccard-arrow">↓</div>
+          </div>
+        </a>
+      </div>
+      <div class="avail-strip">
+        <div class="adot"></div>
+        <p>Open to work · Worldwide remote · 30–45 day notice period</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER — personal, hand-crafted feel -->
+<footer>
+  <div class="ft">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <div class="ft-logo">Aniket<em>.</em></div>
+        <p class="ft-tagline">Frontend engineer who ships fast, <span>breaks nothing</span>, and actually cares about the details.</p>
+      </div>
+      <div class="ft-links-wrap">
+        <div class="ft-col">
+          <div class="ft-col-title">Navigate</div>
+          <ul>
+            <li><a href="#impact">Impact</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="ft-col">
+          <div class="ft-col-title">Connect</div>
+          <ul>
+            <li><a href="mailto:aniketmahajanwork@gmail.com">Email</a></li>
+            <li><a href="https://linkedin.com/in/aniket-mahajan-27844313a" target="_blank">LinkedIn</a></li>
+            <li><a href="tel:+917710943083">+91 77109 43083</a></li>
+            <li><a href="Aniket_Mahajan_Resume.pdf" download>Download Resume</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <div class="ft-copy">
+        © 2026 · <em>Aniket Mahajan</em>
+      </div>
+      <div class="ft-built">
+        <span class="dot"></span>
+        Designed &amp; developed by Aniket Mahajan
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const C=document.getElementById('C'),CR=document.getElementById('CR');
+let mx=-100,my=-100,rx=-100,ry=-100;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+(function loop(){
+  C.style.left=mx+'px';C.style.top=my+'px';
+  rx+=(mx-rx)*.1;ry+=(my-ry)*.1;
+  CR.style.left=rx+'px';CR.style.top=ry+'px';
+  requestAnimationFrame(loop);
+})();
+
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('stuck',scrollY>50));
+
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')}),{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+document.querySelectorAll('.xb').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.xb').forEach(b=>b.classList.remove('on'));
+    document.querySelectorAll('.xe').forEach(e=>e.classList.remove('on'));
+    btn.classList.add('on');
+    document.getElementById(btn.dataset.id).classList.add('on');
+  });
+});
+</script>
 </body>
 </html>
