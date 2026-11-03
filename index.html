@@ -42,14 +42,14 @@
         <div class="hero-visual" aria-label="Frontend engineering system diagram">
           <div class="visual-topline"><span>ENGINEERING SCOPE</span><span class="live-indicator"><i></i> PRODUCT ENGINEERING</span></div>
           <div class="system-map">
-            <div class="system-core"><span class="core-symbol">FE</span><strong>Frontend<br>platform</strong><small>SHARED FOUNDATIONS</small></div>
-            <div class="system-node node-one"><b>01</b><span>Product<br>experiences</span></div>
-            <div class="system-node node-two"><b>02</b><span>Design<br>systems</span></div>
-            <div class="system-node node-three"><b>03</b><span>Developer<br>tooling</span></div>
-            <div class="system-node node-four"><b>04</b><span>Performance<br>& reliability</span></div>
-            <svg class="system-lines" viewBox="0 0 520 420" role="img" aria-label="Connections between frontend platform capabilities">
-              <path d="M260 210 L120 95 M260 210 L400 95 M260 210 L120 325 M260 210 L400 325"/>
-              <circle cx="260" cy="210" r="4"/><circle cx="120" cy="95" r="3"/><circle cx="400" cy="95" r="3"/><circle cx="120" cy="325" r="3"/><circle cx="400" cy="325" r="3"/>
+            <div class="system-core"><span class="core-symbol">FE</span><strong>Frontend<br>platform</strong><small>SHARED FOUNDATIONS</small><span class="core-pulse" aria-hidden="true"></span></div>
+            <div class="system-node node-one" data-node="0" tabindex="0"><b>01</b><span>Product<br>experiences</span></div>
+            <div class="system-node node-two" data-node="1" tabindex="0"><b>02</b><span>Design<br>systems</span></div>
+            <div class="system-node node-three" data-node="2" tabindex="0"><b>03</b><span>Developer<br>tooling</span></div>
+            <div class="system-node node-four" data-node="3" tabindex="0"><b>04</b><span>Performance<br>& reliability</span></div>
+            <svg class="system-lines" viewBox="0 0 520 420" role="img" aria-label="Animated connections between frontend platform capabilities">
+              <path class="connection connection-one" d="M260 210 L120 95"/><path class="connection connection-two" d="M260 210 L400 95"/><path class="connection connection-three" d="M260 210 L120 325"/><path class="connection connection-four" d="M260 210 L400 325"/>
+              <circle class="connection-origin" cx="260" cy="210" r="4"/><circle class="connection-dot dot-one" cx="120" cy="95" r="3"/><circle class="connection-dot dot-two" cx="400" cy="95" r="3"/><circle class="connection-dot dot-three" cx="120" cy="325" r="3"/><circle class="connection-dot dot-four" cx="400" cy="325" r="3"/>
             </svg>
           </div>
           <div class="visual-foot"><span>ARCHITECTURE</span><span>EXECUTION</span><span>OWNERSHIP</span></div>
