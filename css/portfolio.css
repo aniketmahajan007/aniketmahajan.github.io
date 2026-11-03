@@ -54,3 +54,8 @@
  .case-visual,.case-visual:before,.case-visual *{transition:none!important;animation:none!important}
  .motion-ready .case-visual[data-reveal]{opacity:1;transform:none}
 }
+
+
+/* Impact metric count-up */
+.impact-number{font-variant-numeric:tabular-nums;display:inline-block;min-width:2ch}
+.impact-number span{font-variant-numeric:normal}
